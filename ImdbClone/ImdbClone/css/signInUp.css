@@ -1,0 +1,301 @@
+/* main.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar {
+    background-color: #1c1c1c;
+  }
+  
+
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  overflow-y: hidden;
+  transition: height 0.2s ease;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.overlay-content {
+  position: relative;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay h2 {
+  font-size: 24px;
+  color: #f5c518;
+  margin-bottom: 10px;
+}
+
+.overlay ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.overlay ul li {
+  margin: 5px 0;
+}
+
+.overlay ul li a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #f1f1f1;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay ul li a:hover,
+.overlay ul li a:focus {
+  color: #f5c518;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  width: 50px;
+  height: 50px;
+  background-color: #f5c518;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  font-size: 2rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay {
+    overflow-y: auto;
+  }
+  .overlay a {
+    font-size: 20px;
+  }
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+.dropdown-menu {
+  background-color: #333;
+  color: white;
+}
+
+.dropdown-item {
+  color: white;
+}
+
+.dropdown-item:hover {
+  background-color: #444;
+}
+
+.dropdown-header {
+  font-weight: bold;
+  color: white;
+  background-color: #333;
+  padding: 5px 20px;
+  margin-bottom: 0;
+}
+
+.dropdown-divider {
+  border-top: 1px solid #444;
+}
+
+
+/* Sign İn Section */
+.sign-in-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .sign-in-container {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 800px;
+    width: 100%;
+  }
+  
+  .sign-in-box, .benefits {
+    width: 50%;
+    padding: 20px;
+  }
+  
+  .sign-in-box {
+    border-right: 1px solid #ddd;
+  }
+  
+  .sign-in-box h2, .benefits h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .sign-in-options {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sign-in-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+  }
+  
+  .sign-in-option img {
+    width: 24px;
+    margin-right: 10px;
+  }
+  
+  .create-account {
+    margin-top: 20px;
+  }
+  
+  .create-account a {
+    display: inline-block;
+    background-color: #f8c10e;
+    color: #000;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 75px;
+  }
+  
+  .create-account a:hover {
+    background-color: #e0a806;
+  }
+  
+  .create-account a:focus {
+    outline: none;
+  }
+  
+  .benefits ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .benefits li {
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+
+
+
+  
+/*FOOTER*/
+
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .footer-section {
+    margin-bottom: 20px;
+  }
+  
+  .sign-in-button {
+    background-color: #ffb800;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .follow-us {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .follow-us p {
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  .social-icons a img {
+    width: 24px;
+    height: 24px;
+    margin: 0 5px;
+  }
+  
+  .get-app {
+    margin-top: 20px;
+  }
+  
+  .get-app img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .footer-section.links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .footer-section.links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .footer-section.links a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-bottom {
+    font-size: 12px;
+    color: #777;
+  }
+  
+  .footer-bottom span {
+    color: #ffb800;
+  }
+  
+  .footer-bottom p {
+    margin: 5px 0;
+  }
+  /* Footer */

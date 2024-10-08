@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+}
+
+.container img {
+    width: 100px;
+}
+
+.container input[type="text"],
+.container input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.container a {
+    color: #0066c0;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.container button {
+    background-color: #f8c10e;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: calc(100% - 20px);
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.container button:hover {
+    background-color: #e0a806;
+}
+
+.container .details,
+.container .new-account {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.container .footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #666;
+}
+
+.container .footer a {
+    color: #0066c0;
+}
+
+/* Uyarı mesajları için stil */
+#alert-container .alert {
+    margin: 10px 0;
+}

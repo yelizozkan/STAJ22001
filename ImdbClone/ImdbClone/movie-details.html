@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
+  <title>IMDB</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/movie-details.css" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/9eb6ee9cb4.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+      <!-- navbar start -->
+  <nav class="navbar navbar-expand-lg d-flex justify-content-around bg-dark">
+    <div class="container">
+      <a class="navbar-brand text-white" href="homepage.html"><img
+          src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg" id="brand-logo "alt="IMDB Logo" width="60"
+          height="40" /></a>
+      <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
+        <div class="overlay-content">
+          <div class="row">
+            <div class="col-md-2">
+              <img src="images/movie-icon.png" class="menu-images" alt="Movies Icon" />
+              <h2>Movies</h2>
+              <ul>
+                <li><a href="#">Release Calendar</a></li>
+                <li><a href="#">Top 250 Movies</a></li>
+                <li><a href="#">Most Popular Movies</a></li>
+                <li><a href="#">Browse Movies by Genre</a></li>
+                <li><a href="#">Top Box Office</a></li>
+                <li><a href="#">Showtimes & Tickets</a></li>
+                <li><a href="#">Movie News</a></li>
+                <li><a href="#">India Movie Spotlight</a></li>
+              </ul>
+            </div>
+
+            <div class="col-md-2">
+              <img src="/images/tvShows-icon.png" class="menu-images" alt="TvShows Icon" />
+              <h2>TV Shows</h2>
+              <ul>
+                <li><a href="#">What's on TV & Streaming</a></li>
+                <li><a href="#">Top 250 TV Shows</a></li>
+                <li><a href="#">Most Popular TV Shows</a></li>
+                <li><a href="#">Browse TV Shows by Genre</a></li>
+                <li><a href="#">TV News</a></li>
+              </ul>
+            </div>
+
+            <div class="col-md-2">
+              <img src="images/awardsEvents-icon.png" class= "menu-images"alt="AwardsEvents Icon" />
+              <h2>Awards & Events</h2>
+              <ul>
+                <li><a href="#">San Diego Comic-Con</a></li>
+                <li><a href="#">Oscars</a></li>
+                <li><a href="#">Emmys</a></li>
+                <li><a href="#">STARmeter Awards</a></li>
+                <li><a href="#">Awards Central</a></li>
+                <li><a href="#">Festival Central</a></li>
+                <li><a href="#">All Events</a></li>
+              </ul>
+            </div>
+
+            <div class="col-md-2">
+              <img src="images/celebs-icon.png" class="menu-images" alt="Celebs Icon" />
+              <h2>Celebs</h2>
+              <ul>
+                <li><a href="#">Born Today</a></li>
+                <li><a href="#">Most Popular Celebs</a></li>
+                <li><a href="#">Celebrity News</a></li>
+              </ul>
+            </div>
+
+            <div class="col-md-2">
+              <img src="images/watch-icon.png" class="menu-images" alt="Watch Icon" />
+              <h2>Watch</h2>
+              <ul id="overlayMenu">
+                <li><a href="#">What to Watch</a></li>
+                <li><a href="#">Latest Trailers</a></li>
+                <li><a href="#">IMDb Originals</a></li>
+                <li><a href="#">IMDb Picks</a></li>
+                <li><a href="#">IMDb Spotlight</a></li>
+                <li><a href="#">IMDb Podcasts</a></li>
+              </ul>
+            </div>
+
+            <div class="col-md-2">
+              <img src="images/community-icon.png"class="menu-images" alt="Watch Icon" />
+              <h2>Community</h2>
+              <ul>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Contributor</a></li>
+                <li><a href="#">Polls</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <span style="font-size: 30px; cursor: pointer" id="menu-icon" onclick="toggleNav(true)">&#9776;
+      </span>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="input-group px-5 position-relative rounded-pill">
+        <input type="text" class="form-control rounded-2" placeholder="Search IMDB" id="movie-search-box"
+          onkeyup="findMovies(event)" onclick="findMovies(event)" aria-label="Text input with dropdown button"
+          style="padding-left: 10px" />
+        <div class="search-c">
+          <div id="searchList" onclick="onOutOfListClick(event)">
+            <!-- list here -->
+            <!-- <div class = "search-list-item">
+                  <div class = "search-item-thumbnail">
+                      <img src = "medium-cover.jpg">
+                  </div>
+                  <div class = "search-item-info">
+                      <h3>Guardians of the Galaxy Vol. 2</h3>
+                      <p>2017</p>
+                  </div>
+              </div> -->
+            <div id="searchListPopup">
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="navbar-nav mb-2 mb-lg-0"id="navbar-flex-item">
+        <li class="nav-item">
+          <a class="nav-link text-white active" aria-current="page" href="#">
+            <span style="color: white">IMDb</span><span style="color: #00a6d6">Pro</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Watchlist</a>
+        </li>
+        <li class="nav-item">
+          <a href="signInUp.html" class="nav-link text-white">Sign In</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            EN
+          </a>
+
+          <ul class="dropdown-menu">
+            <!-- Fully Supported Section -->
+            <li class="dropdown-header">FULLY SUPPORTED</li>
+            <li>
+              <a class="dropdown-item" href="#">English (United States)</a>
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <!-- Partially Supported Section -->
+            <li class="dropdown-header">PARTIALLY SUPPORTED</li>
+            <li><a class="dropdown-item" href="#">Français (Canada)</a></li>
+            <li><a class="dropdown-item" href="#">Français (France)</a></li>
+            <li>
+              <a class="dropdown-item" href="#">Deutsch (Deutschland)</a>
+            </li>
+            <li><a class="dropdown-item" href="#">हिंदी (भारत)</a></li>
+            <li><a class="dropdown-item" href="#">Italiano (Italia)</a></li>
+            <li><a class="dropdown-item" href="#">Português (Brasil)</a></li>
+            <li><a class="dropdown-item" href="#">Español (España)</a></li>
+            <li><a class="dropdown-item" href="#">Español (México)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- nav finish  -->
+
+
+<!-- result container -->
+<div class = "container">
+    <div class = "result-container">
+        <div class = "result-grid" id = "result-grid">
+            <!-- movie information here -->
+            <div class = "movie-poster">
+                <img src = "/images/TheWalkingDead.png" alt = "movie poster">
+            </div>
+            <div class = "movie-info">
+                <h3 class = "movie-title">Guardians of the Galaxy Vol. 2</h3>
+                <ul class = "movie-misc-info">
+                    <li class = "year">Year: 2017</li>
+                    <li class = "rated">Ratings: PG-13</li>
+                    <li class = "released">Released: 05 May 2017</li>
+                </ul>
+                <p class = "genre"><b>Genre:</b> Action, Adventure, Comedy</p>
+                <p class = "writer"><b>Writer:</b> James Gunn, Don Abnett, Andy Lanning</p>
+                <p class = "actors"><b>Actors: </b>Chris Pratt, Zoe Saldana, Dave Bautista</p>
+                <p class = "plot"><b>Plot:</b> The Guardians struggle to keep together as a team while dealing with their personal family issues, notably Star-Lord's ecounter with his father the ambitious celestial being Ego.</p>
+                <p class = "language"><b>Language:</b> English</p>
+                <p class = "awards"><b><i class = "fas fa-award"></i></b> Nominated for 1 Oscar</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end of result container -->
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section social-media">
+          <button class="sign-in-button">Sign in for more access</button>
+          <div class="follow-us">
+            <p>Follow IMDb on social</p>
+            <div class="social-icons">
+              <a href="#"><img src="images/icons8-tiktok-50.png" alt="TikTok" /></a>
+              <a href="#"><img src="images/icons8-instagram-50 (1).png" alt="Instagram" /></a>
+              <a href="#"><img src="images/icons8-twitter-30.png" alt="Twitter" /></a>
+              <a href="#"><img src="images/icons8-youtube-50 (1).png" alt="YouTube" /></a>
+              <a href="#"><img src="images/icons8-facebook-50.png" alt="Facebook" /></a>
+            </div>
+          </div>
+          <div class="get-app">
+            <p>Get the IMDb app</p>
+            <img src="images/icons8-qr-code-64.png" alt="QR Code" />
+          </div>
+      </div>
+      <div class="footer-section links">
+        <a href="#">Help</a>
+        <a href="#">Site Index</a>
+        <a href="#">IMDbPro</a>
+        <a href="#">Box Office Mojo</a>
+        <a href="#">License IMDb Data</a>
+        <a href="#">Press Room</a>
+        <a href="#">Advertising</a>
+        <a href="#">Jobs</a>
+        <a href="#">Conditions of Use</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Your Ads Privacy Choices</a>
+      </div>
+      <div class="footer-bottom">
+        <p>an <span>amazon</span> company</p>
+        <p>&copy; 1990-2024 by IMDb.com, Inc.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const movieId = urlParams.get("movieId");
+    
+    console.log("Movie ID:", movieId);
+    
+    if (movieId) {
+        fetchMovieDetails(movieId);
+    }
+});
+
+const fetchMovieDetails = async (movieId) => {
+    const apiKeyTMDB = "e261c1ebad4a66d2da6a9166a7d53dbf";
+    try {
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKeyTMDB}&append_to_response=credits`);
+        const movieDetails = await response.json();
+        if (movieDetails) {
+            displayMovieDetails(movieDetails);
+        } else {
+            console.error("Movie details could not be found.");
+        }
+    } catch (error) {
+        console.error("An error occurred while fetching movie details:", error);
+    }
+};
+
+const displayMovieDetails = (details) => {
+    const resultGrid = document.getElementById("result-grid");
+    if (resultGrid) {
+        const imgSrc = details.poster_path ? `https://image.tmdb.org/t/p/w500${details.poster_path}` : "/images/default_poster.png";
+        const title = details.title || "N/A";
+        const year = details.release_date ? details.release_date.split('-')[0] : "N/A";
+        const ratings = details.vote_average || "N/A";
+        const genres = details.genres && details.genres.map(genre => genre.name).join(", ") || "N/A";
+        const writers = details.credits.crew && details.credits.crew.filter(crew => crew.job === "Screenplay" || crew.job === "Writer")
+                            .map(writer => writer.name).join(", ") || "N/A";
+        const actors = details.credits.cast && details.credits.cast.slice(0, 5).map(actor => actor.name).join(", ") || "N/A";
+        const overview = details.overview || "N/A";
+        const languages = details.spoken_languages && details.spoken_languages.map(lang => lang.name).join(", ") || "N/A";
+        const awards = details.awards || "N/A";  // awards API'yi kullanarak bu bilgiyi sağlayın, şimdilik "N/A" kullanıyoruz.
+
+        resultGrid.innerHTML = `
+          <div class="movie-poster">
+            <img src="${imgSrc}" alt="movie poster">
+          </div>
+          <div class="movie-info">
+            <h3 class="movie-title">${title}</h3>
+            <ul class="movie-misc-info">
+              <li class="year">Year: ${year}</li>
+              <li class="rated">Ratings: ${ratings}</li>
+              <li class="released">Released: ${details.release_date}</li>
+            </ul>
+            <p class="genre"><b>Genre:</b> ${genres}</p>
+            <p class="writer"><b>Writer:</b> ${writers}</p>
+            <p class="actors"><b>Actors: </b>${actors}</p>
+            <p class="plot"><b>Plot:</b> ${overview}</p>
+            <p class="language"><b>Language:</b> ${languages}</p>
+            <p class="awards"><b><i class="fas fa-award"></i></b> ${awards}</p>
+          </div>
+        `;
+    }
+};
+
+</script>
+</html>
